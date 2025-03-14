@@ -14,6 +14,7 @@
 	let baseUrl = BASE_URL;
 
 	async function fetchReligions() {
+		console.log("hello..............");
 		try {
 			const response = await fetch(`${baseUrl}/religions`);
 			if (!response.ok) {
