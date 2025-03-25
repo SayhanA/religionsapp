@@ -25,7 +25,7 @@
 
 	async function fetchCaste(religionId) {
 		try {
-			const response = await fetch(`${baseUrl}/casts?religionId=${religionId}`);
+			const response = await fetch(`${baseUrl}/casts?id=${religionId}`);
 			if (!response.ok) throw new Error('Failed to fetch caste data');
 
 			const data = await response.json();

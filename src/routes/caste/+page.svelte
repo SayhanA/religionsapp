@@ -5,6 +5,7 @@
 	import CastesForm from '../../components/CastesForm.svelte';
 	import CastesTable from '../../components/CastesTable.svelte';
 	import { BASE_URL } from '../../config';
+	import axios from 'axios';
 
 	// @ts-nocheck
 
@@ -16,7 +17,6 @@
 	let castes = [];
 	let baseUrl = BASE_URL;
 
-	// Extract parameters from URL
 	if (typeof window !== 'undefined') {
 		const params = new URLSearchParams(window.location.search);
 		religionId = params.get('religionId') || 'Unknown ID';
@@ -24,8 +24,8 @@
 	}
 
 	async function fetchCastes() {
-		const response = await fetch(`${baseUrl}/casts`);
-		castes = await response.json();
+		const response = await axios.get(`${baseUrl}/casts?id=${religionId}`);
+		castes = response?.data;
 	}
 
 	function handleEdit(caste) {
