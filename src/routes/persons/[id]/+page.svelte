@@ -34,7 +34,7 @@
 	}
 </script>
 
-<section>
+<section class=" py-12 sm:px-6 lg:px-8">
 	{#if loading}
 		<p>Loading...</p>
 	{:else}

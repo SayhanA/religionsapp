@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-button {
+button, .btn {
 	@apply max-w-[400px] cursor-pointer;
 }
 

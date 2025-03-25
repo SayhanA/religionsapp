@@ -41,16 +41,13 @@
 		try {
 			let response;
 			if (Object.keys(person).length === 0) {
-				// Create new person
 				response = await axios.post(`${BASE_URL}/person`, formData);
 			} else {
-				console.log("hello.........................");
-				// Update existing person
 				response = await axios.put(`${BASE_URL}/person?id=${person?._id}`, formData);
 			}
 
 			if (response) {
-				// resetForm();
+				resetForm();
 				addToast('success', 'Person saved successfully.');
 				personAdded();
 				goto('/persons');
@@ -107,5 +104,10 @@
 	<AgeCalculator />
 	<ReligionCasteSelector />
 
-	<button class="btn btn-primary mt-4 w-full max-w-xs" type="submit">Add Person</button>
+	<div>
+		<button class="btn btn-primary mt-4 w-full max-w-xs" type="submit">Add Person</button>
+		{#if Object.keys(person).length > 0}
+			<a class="btn btn-primary btn-secondary mt-4 w-full max-w-xs px-10" href="/persons">Cancel</a>
+		{/if}
+	</div>
 </form>
